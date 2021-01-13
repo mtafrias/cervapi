@@ -1,2 +1,0 @@
-# cervapi
-API de Cervejas
