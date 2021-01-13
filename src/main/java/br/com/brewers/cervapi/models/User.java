@@ -12,7 +12,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.util.Collection;
-import java.util.List;
+import java.util.Set;
 
 @Document(collection = "users")
 @Data
@@ -28,7 +28,7 @@ public class User implements UserDetails {
     @JsonDeserialize(using = PasswordDeserializer.class)
     private String password;
     @JsonDeserialize(using = AuthorityDeserializer.class)
-    private List<Role> authorities;
+    private Set<Role> authorities;
     private boolean expiredAccount = false;
     private boolean expiredCredentials = false;
     private boolean locked = false;

@@ -10,6 +10,10 @@ public class Role implements GrantedAuthority {
         this.tipo = tipo;
     }
 
+    public static Role from(Tipo tipo) {
+        return tipo != null ? new Role(tipo) : null;
+    }
+
     @Override
     public String getAuthority() {
         return tipo != null ? tipo.getName() : null;
