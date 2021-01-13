@@ -1,16 +1,18 @@
 package br.com.brewers.cervapi.models;
 
+import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.validation.annotation.Validated;
 
-import javax.validation.constraints.NegativeOrZero;
+import javax.validation.constraints.Negative;
 import javax.validation.constraints.NotNull;
 import java.net.URI;
 import java.util.Objects;
 
 @Validated
-@Document
+@Document(collection = "cervejas")
+@Data
 public class Cerveja {
 
     @Id
@@ -23,64 +25,8 @@ public class Cerveja {
     private URI imagem;
     private String fabricante;
     private EstiloCerveja estilo;
-    @NegativeOrZero(message = "Teor alcólico deve ser maior que zero.")
+    @Negative(message = "Teor alcólico não pode ser negativo.")
     private double teorAlcolico;
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public URI getImagem() {
-        return imagem;
-    }
-
-    public void setImagem(URI imagem) {
-        this.imagem = imagem;
-    }
-
-    public String getFabricante() {
-        return fabricante;
-    }
-
-    public void setFabricante(String fabricante) {
-        this.fabricante = fabricante;
-    }
-
-    public EstiloCerveja getEstilo() {
-        return estilo;
-    }
-
-    public void setEstilo(EstiloCerveja estilo) {
-        this.estilo = estilo;
-    }
-
-    public double getTeorAlcolico() {
-        return teorAlcolico;
-    }
-
-    public void setTeorAlcolico(double teorAlcolico) {
-        this.teorAlcolico = teorAlcolico;
-    }
 
     @Override
     public boolean equals(Object o) {
