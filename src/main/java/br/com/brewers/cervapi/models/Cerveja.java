@@ -11,9 +11,11 @@ import java.net.URI;
 import java.util.Objects;
 
 @Validated
-@Document(collection = "cervejas")
+@Document(collection = Cerveja.COLLECTION_NAME)
 @Data
 public class Cerveja {
+
+    public static final String COLLECTION_NAME = "cervejas";
 
     @Id
     private String id;
@@ -29,7 +31,7 @@ public class Cerveja {
     private double teorAlcolico;
 
     public static String getCollection() {
-        return "cervejas";
+        return COLLECTION_NAME;
     }
 
     @Override

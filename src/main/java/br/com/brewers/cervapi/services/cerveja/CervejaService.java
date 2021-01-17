@@ -17,4 +17,6 @@ public interface CervejaService {
     Mono<Cerveja> getRandom();
 
     Mono<Long> count();
+
+    Mono<Boolean> existsById(String id);
 }
