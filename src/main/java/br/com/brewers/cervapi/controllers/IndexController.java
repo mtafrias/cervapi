@@ -21,11 +21,9 @@ public class IndexController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public Mono<String> index(Model model) {
-        log.info("Renderizando index.");
         return controller.count().map(count -> {
-            log.info("Contador de cervejas em [" + count + "]");
             model.addAttribute("cerveja_count", count);
-            return "/index";
+            return "index";
         });
     }
 }
