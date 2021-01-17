@@ -15,10 +15,12 @@ import javax.validation.constraints.Size;
 import java.util.Collection;
 import java.util.Set;
 
-@Document(collection = "users")
+@Document(collection = User.COLLECTION_NAME)
 @Data
 @ApiIgnore
 public class User implements UserDetails {
+
+    public static final String COLLECTION_NAME = "users";
 
     @Id
     private String id;

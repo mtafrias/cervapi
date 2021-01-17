@@ -56,4 +56,9 @@ public class CervejaServiceImpl implements CervejaService {
         return repository.count();
     }
 
+    @Override
+    public Mono<Boolean> existsById(String id) {
+        return repository.existsById(id);
+    }
+
 }

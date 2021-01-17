@@ -39,24 +39,9 @@ public class CervejaController extends BaseController {
     }
 
     @GetMapping
-    @Operation(
-            summary = "Retorna uma cerveja aleatória no banco",
-            responses = {@ApiResponse(description = "A cerveja", content = @Content(mediaType = "application/json", schema = @Schema(implementation = Cerveja.class)))}
-    )
-    public Mono<Cerveja> getRandomCerveja() {
-        return service.getRandom();
-    }
-
-    @GetMapping("/list")
     @Operation(summary = "Retorna todas as cervejas disponíveis")
     public Flux<Cerveja> getCervejas() {
         return service.findAll();
-    }
-
-    @GetMapping("/count")
-    @Operation(summary = "Retorna quantidade de cervejas cadastradas")
-    public Mono<Long> count() {
-        return service.count();
     }
 
     @GetMapping("/{id}")
@@ -69,6 +54,21 @@ public class CervejaController extends BaseController {
     )
     public Mono<Cerveja> findById(@PathVariable String id) {
         return service.findById(id).switchIfEmpty(Mono.error(new NotFoundException()));
+    }
+
+    @GetMapping("/random")
+    @Operation(
+            summary = "Retorna uma cerveja aleatória",
+            responses = {@ApiResponse(description = "A cerveja", content = @Content(mediaType = "application/json", schema = @Schema(implementation = Cerveja.class)))}
+    )
+    public Mono<Cerveja> getRandomCerveja() {
+        return service.getRandom();
+    }
+
+    @GetMapping("/count")
+    @Operation(summary = "Retorna quantidade de cervejas cadastradas")
+    public Mono<Long> count() {
+        return service.count();
     }
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
@@ -87,6 +87,9 @@ public class CervejaController extends BaseController {
             security = @SecurityRequirement(name = "editor")
     )
     public Mono<Void> delete(@PathVariable String id) {
-        return service.deleteById(id).switchIfEmpty(Mono.error(new NotFoundException()));
+        return service.existsById(id).flatMap(exists -> {
+            if (exists) return service.deleteById(id);
+            else return Mono.error(new NotFoundException());
+        });
     }
 }

@@ -17,7 +17,6 @@ public abstract class BaseController {
         return new InvalidArgumentsResponse(e);
     }
 
-
     @ExceptionHandler(NotFoundException.class)
     public ResponseEntity<?> handleNotFoundException(NotFoundException e) {
         log.error(e.getMessage());
