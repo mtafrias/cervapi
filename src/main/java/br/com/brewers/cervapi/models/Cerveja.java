@@ -5,8 +5,8 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.validation.annotation.Validated;
 
-import javax.validation.constraints.Negative;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 import java.net.URI;
 import java.util.Objects;
 
@@ -25,8 +25,12 @@ public class Cerveja {
     private URI imagem;
     private String fabricante;
     private EstiloCerveja estilo;
-    @Negative(message = "Teor alcólico não pode ser negativo.")
+    @Positive(message = "Teor alcólico não pode ser negativo.")
     private double teorAlcolico;
+
+    public static String getCollection() {
+        return "cervejas";
+    }
 
     @Override
     public boolean equals(Object o) {

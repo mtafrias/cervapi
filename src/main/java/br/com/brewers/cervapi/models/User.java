@@ -8,6 +8,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import springfox.documentation.annotations.ApiIgnore;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -16,6 +17,7 @@ import java.util.Set;
 
 @Document(collection = "users")
 @Data
+@ApiIgnore
 public class User implements UserDetails {
 
     @Id

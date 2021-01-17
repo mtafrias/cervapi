@@ -2,7 +2,7 @@ package br.com.brewers.cervapi.models;
 
 public enum EstiloCerveja {
 
-    PALE_LARGER("Pale Larger"),
+    PALE_LAGER("Pale Lager"),
     PILSENER("Pilsener");
 
     private final String descricao;

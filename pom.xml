@@ -10,7 +10,7 @@
     </parent>
     <groupId>br.com.brewers</groupId>
     <artifactId>cervapi</artifactId>
-    <version>0.0.1</version>
+    <version>1.0.0</version>
     <name>CervAPI</name>
     <description>API de Cervejas</description>
 
@@ -71,6 +71,15 @@
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>30.1-jre</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-boot-starter</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
     </dependencies>
     <build>

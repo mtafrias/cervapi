@@ -2,7 +2,7 @@ package br.com.brewers.cervapi.config;
 
 import br.com.brewers.cervapi.controllers.UserController;
 import br.com.brewers.cervapi.models.Role;
-import br.com.brewers.cervapi.services.UserServiceImpl;
+import br.com.brewers.cervapi.services.user.UserServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -26,7 +26,7 @@ public class SecurityConfig {
                 .pathMatchers(HttpMethod.POST).hasAuthority(Role.Tipo.EDITOR.getName())
                 .pathMatchers(HttpMethod.DELETE).hasAuthority(Role.Tipo.EDITOR.getName())
                 .pathMatchers(HttpMethod.PUT).hasAuthority(Role.Tipo.EDITOR.getName())
-                .and().httpBasic().and().formLogin().and().build();
+                .and().httpBasic().and().build();
     }
 
     @Bean

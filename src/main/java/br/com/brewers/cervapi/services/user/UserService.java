@@ -1,4 +1,4 @@
-package br.com.brewers.cervapi.services;
+package br.com.brewers.cervapi.services.user;
 
 import br.com.brewers.cervapi.models.User;
 import reactor.core.publisher.Flux;
