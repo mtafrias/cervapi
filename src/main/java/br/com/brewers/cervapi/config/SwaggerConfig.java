@@ -18,7 +18,7 @@ public class SwaggerConfig {
                 .apiInfo(new ApiInfoBuilder()
                         .title("CervAPI")
                         .description("API de Cervejas encontradas no Brasil")
-                        .version("1.0.2")
+                        .version("1.0.3")
                         .contact(new Contact("Brewers", "https://github.com/mtafrias/", "mtafrias@gmail.com"))
                         .license("MIT License")
                         .build()
