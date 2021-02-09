@@ -38,12 +38,14 @@ public class CervejaController extends BaseController {
         this.service = service;
     }
 
+    @CrossOrigin
     @GetMapping
     @Operation(summary = "Retorna todas as cervejas disponíveis")
     public Flux<Cerveja> getCervejas() {
         return service.findAll();
     }
 
+    @CrossOrigin
     @GetMapping("/{id}")
     @Operation(
             summary = "Retorna a cerveja com o ID especificado",
@@ -56,6 +58,7 @@ public class CervejaController extends BaseController {
         return service.findById(id).switchIfEmpty(Mono.error(new NotFoundException()));
     }
 
+    @CrossOrigin
     @GetMapping("/random")
     @Operation(
             summary = "Retorna uma cerveja aleatória",
