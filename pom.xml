@@ -10,7 +10,7 @@
     </parent>
     <groupId>br.com.brewers</groupId>
     <artifactId>cervapi</artifactId>
-    <version>1.1.3</version>
+    <version>1.1.4</version>
     <name>CervAPI</name>
     <description>API de Cervejas</description>
 
