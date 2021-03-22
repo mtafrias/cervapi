@@ -27,6 +27,7 @@ public class UserController extends BaseController {
         this.service = service;
     }
 
+    @CrossOrigin
     @GetMapping
     public Flux<User> getUsers() {
         return service.findAll();
