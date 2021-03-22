@@ -20,7 +20,6 @@ import reactor.core.publisher.Mono;
 
 import javax.validation.Valid;
 
-@CrossOrigin
 @RestController
 @RequestMapping(CervejaController.ROUTE)
 @SecurityScheme(name = "editor",

@@ -13,7 +13,6 @@ import springfox.documentation.annotations.ApiIgnore;
 
 import javax.validation.Valid;
 
-@CrossOrigin
 @RestController
 @RequestMapping(UserController.ROUTE)
 @ApiIgnore
