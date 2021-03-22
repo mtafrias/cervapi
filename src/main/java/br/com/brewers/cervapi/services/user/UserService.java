@@ -11,4 +11,6 @@ public interface UserService {
     Mono<User> findById(String id);
 
     Mono<User> save(User user);
+
+    String login();
 }

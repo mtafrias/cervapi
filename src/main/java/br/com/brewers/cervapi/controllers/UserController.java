@@ -37,6 +37,12 @@ public class UserController extends BaseController {
         return service.findById(id).switchIfEmpty(Mono.error(new NotFoundException()));
     }
 
+    @CrossOrigin
+    @GetMapping("/login")
+    public String login() {
+        return service.login();
+    }
+
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
     public Mono<User> save(@RequestBody @Valid User user) {
