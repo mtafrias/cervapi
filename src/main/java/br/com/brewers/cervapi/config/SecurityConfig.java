@@ -21,7 +21,7 @@ public class SecurityConfig {
     @Bean
     public SecurityWebFilterChain securitygWebFilterChain(ServerHttpSecurity http) {
         return http.csrf().disable().authorizeExchange()
-                .pathMatchers(HttpMethod.GET, UserController.ROUTE).hasAuthority(Role.Tipo.EDITOR.getName())
+                .pathMatchers(HttpMethod.GET, UserController.ROUTE + "/**").hasAuthority(Role.Tipo.EDITOR.getName())
                 .pathMatchers(HttpMethod.GET).permitAll()
                 .pathMatchers(HttpMethod.POST).hasAuthority(Role.Tipo.EDITOR.getName())
                 .pathMatchers(HttpMethod.DELETE).hasAuthority(Role.Tipo.EDITOR.getName())
