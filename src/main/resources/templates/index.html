@@ -27,7 +27,7 @@
     <footer class="modal-footer">
         <div class="container-fluid">
             <p>Tempo atual:
-                <th:block th:utext="${#dates.format(#dates.createNow(), 'dd/MM/yyyy HH:mm z')}"/>
+                <th:block th:utext="${formatter.format(#dates.createNow())}"/>
             </p>
             <p>Última build em:
                 <th:block th:utext="${build_time}"/>
