@@ -37,7 +37,7 @@ public class UserController extends BaseController {
         return service.findById(id).switchIfEmpty(Mono.error(new NotFoundException()));
     }
 
-    @CrossOrigin(allowCredentials = "TRUE")
+    @CrossOrigin
     @GetMapping("/login")
     public String login() {
         return service.login();
