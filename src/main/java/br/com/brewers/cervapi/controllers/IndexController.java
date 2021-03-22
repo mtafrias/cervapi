@@ -29,7 +29,7 @@ public class IndexController {
 
     @GetMapping
     public Mono<String> index(Model model) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm z").withLocale(Locale.getDefault()).withZone(ZoneId.systemDefault());
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm z").withLocale(new Locale("pt_BR")).withZone(ZoneId.of("America/Sao_Paulo"));
         return controller.count().map(count -> {
             model.addAttribute("build_time", formatter.format(properties.getTime()));
             model.addAttribute("cerveja_count", count);
