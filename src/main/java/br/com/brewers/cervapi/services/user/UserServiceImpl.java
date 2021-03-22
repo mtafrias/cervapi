@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.util.UUID;
+
 @Service
 public class UserServiceImpl implements UserService, ReactiveUserDetailsService {
 
@@ -29,6 +31,11 @@ public class UserServiceImpl implements UserService, ReactiveUserDetailsService 
 
     public Mono<User> save(User user) {
         return userRepository.save(user);
+    }
+
+    @Override
+    public String login() {
+        return UUID.randomUUID().toString();
     }
 
     @Override

@@ -74,6 +74,7 @@ public class CervejaController extends BaseController {
         return service.count();
     }
 
+    @CrossOrigin
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
     @Operation(
