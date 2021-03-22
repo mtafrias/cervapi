@@ -37,7 +37,7 @@ public class UserController extends BaseController {
         return service.findById(id).switchIfEmpty(Mono.error(new NotFoundException()));
     }
 
-    @CrossOrigin(origins = {"http://localhost:4200", "https://cervapi-website.herokuapp.com/"}, allowCredentials = "TRUE")
+    @CrossOrigin(origins = {"http://localhost:4200", "https://cervapi-website.herokuapp.com"}, allowCredentials = "true")
     @GetMapping("/login")
     public String login() {
         return service.login();
