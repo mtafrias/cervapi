@@ -13,6 +13,7 @@ import springfox.documentation.annotations.ApiIgnore;
 
 import javax.validation.Valid;
 
+@CrossOrigin
 @RestController
 @RequestMapping(UserController.ROUTE)
 @ApiIgnore
@@ -27,7 +28,6 @@ public class UserController extends BaseController {
         this.service = service;
     }
 
-    @CrossOrigin
     @GetMapping
     public Flux<User> getUsers() {
         return service.findAll();
@@ -38,7 +38,6 @@ public class UserController extends BaseController {
         return service.findById(id).switchIfEmpty(Mono.error(new NotFoundException()));
     }
 
-    @CrossOrigin
     @GetMapping("/login")
     public String login() {
         return service.login();
